@@ -18,6 +18,8 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 export const useSidebar = () => {
   const context = useContext(SidebarContext);
   if (!context) {
+    // this is smart
+    // He's throwing the error for future developers who might forget to wrap their components with the SidebarProvider.
     throw new Error("useSidebar must be used within a SidebarProvider");
   }
   return context;
